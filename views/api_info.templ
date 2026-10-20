@@ -1,0 +1,114 @@
+package views
+import (
+    	"currencies/views/components"
+        "currencies/views/layout"
+)
+
+templ Api_info() {
+@layout.Layout(layout.LayoutProps{
+		Title: "Курсы валют. API",
+		MetaDescription: "Курсы валют. API",
+	}) {
+		<main>	
+            @Api_infoStyle()
+			@components.Title("Курсы валют. API")
+        <div class="center_block">
+	
+			<table class="table">
+				<thead>
+					<tr>
+						<th>API</th>
+                        <th></th>											
+					</tr>
+				</thead>
+				<tbody>
+                <tr><td><span class="bl">JSON</span></td><td></td></tr>
+                <tr>
+				    <td>/api/v1/demo/exchange_rates/current/json?currencies=all</td>
+                    <td>Список курсов всех валют на текущий день</td>
+                 </tr>  
+                 <tr>
+				    <td>/api/v1/demo/exchange_rates/current/json?currencies=usd</td>
+                    <td>Курс одной валюты на текущий день</td>
+                 </tr> 
+                 <tr>
+				    <td>/api/v1/demo/exchange_rates/date/json?date=08.10.2026</td>
+                    <td>Список курсов всех валют на дату</td>
+                 </tr> 
+                 <tr><td><span class="bl">XML</span></td><td></td></tr>
+                 <tr>
+				    <td>/api/v1/demo/exchange_rates/current/xml?currencies=all</td>
+                    <td>Список курсов всех валют на текущий день</td>
+                 </tr>  
+                 <tr>
+				    <td>/api/v1/demo/exchange_rates/current/xml?currencies=usd</td>
+                    <td>Курс одной валюты на текущий день</td>
+                 </tr> 
+                 <tr>
+				    <td>/api/v1/demo/exchange_rates/date/xml?date=08.10.2026</td>
+                    <td>Список курсов всех валют на дату</td>
+                 </tr> 
+				 <tr><td colspan="2" style="text-align:center;">Для demo режима ограничение 1 запрос в минуту</td></tr>
+				</tbody>
+			</table>	
+			</div>	
+		</main>
+	}
+}
+
+templ Api_infoStyle() {
+<style>
+   .center_block{
+	width: 850px;
+	margin: 0 auto;
+   }
+
+	.table {
+	width: 100%;
+	margin-bottom: 20px;
+	border: 5px solid #fff;
+	border-top: 5px solid #fff;
+	border-bottom: 3px solid #fff;
+	border-collapse: collapse; 
+	outline: 3px solid #92c3f1;
+	font-size: 15px;
+	background: #fff!important;
+}
+.table th {
+	font-weight: bold;
+	padding: 7px;
+	background: #92c3f1;
+	border: none;
+	text-align: left;
+	font-size: 15px;
+	border-top: 3px solid #fff;
+	border-bottom: 3px solid #92c3f1;
+}
+.table td {
+	padding: 7px;
+	border: none;
+	border-top: 3px solid #fff;
+	border-bottom: 3px solid #fff;
+	font-size: 15px;
+}
+.table tbody tr:nth-child(even){
+	background: #f8f8f8!important;
+}
+
+.exch_date {
+	text-align: center;
+	font-weight: bold;
+	padding-top: 10px;
+	margin-bottom: 20px;
+}
+.bl{
+    font-weight: bold;
+}
+
+@media (max-width: 730px) {
+   .center_block{
+	width: 100%;
+   }
+}
+</style>
+}

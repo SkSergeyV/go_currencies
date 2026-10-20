@@ -1,0 +1,101 @@
+package views
+import (
+    	"currencies/views/components"
+        "currencies/views/layout"
+
+		"currencies/internal/models"
+		"strconv"
+)
+
+templ Home(currencies []models.Currencies, lastUpdateDate string, lastUpdateDateFrom string) {
+@layout.Layout(layout.LayoutProps{
+		Title: "Курсы валют. Главная",
+		MetaDescription: "Курсы валют. Главная",
+	}) {
+		<main>	
+            @HomeStyle()
+			@components.Title("Курсы валют")
+        <div class="center_block">
+		<div class="exch_date">{ lastUpdateDate } [{ lastUpdateDateFrom }]</div>
+			<table class="table">
+				<thead>
+					<tr>
+						<th>Валюта</th>
+						<th>Единиц</th>
+						<th>Код</th>
+						<th>Курс</th>
+						<th>(+-)</th>						
+					</tr>
+				</thead>
+				<tbody>
+				for _, currency := range currencies {
+							<tr>
+								<td>{ currency.CurrencyName }</td>
+								<td>{ strconv.Itoa(currency.Nominal) }</td>
+								<td>{ currency.CharCode }</td>
+								<td>{ currency.ExchangeValue }</td>
+								<td>{ currency.Difference }</td>
+							</tr>
+						}				
+				</tbody>
+			</table>
+			<br>
+			<div style="text-align: center;"><a href="/api/v1">API</a></div>	
+			</div>	
+		</main>
+	}
+}
+
+templ HomeStyle() {
+<style>
+   .center_block{
+	width: 700px;
+	margin: 0 auto;
+   }
+
+	.table {
+	width: 100%;
+	margin-bottom: 20px;
+	border: 5px solid #fff;
+	border-top: 5px solid #fff;
+	border-bottom: 3px solid #fff;
+	border-collapse: collapse; 
+	outline: 3px solid #92c3f1;
+	font-size: 15px;
+	background: #fff!important;
+}
+.table th {
+	font-weight: bold;
+	padding: 7px;
+	background: #92c3f1;
+	border: none;
+	text-align: left;
+	font-size: 15px;
+	border-top: 3px solid #fff;
+	border-bottom: 3px solid #92c3f1;
+}
+.table td {
+	padding: 7px;
+	border: none;
+	border-top: 3px solid #fff;
+	border-bottom: 3px solid #fff;
+	font-size: 15px;
+}
+.table tbody tr:nth-child(even){
+	background: #f8f8f8!important;
+}
+
+.exch_date {
+	text-align: center;
+	font-weight: bold;
+	padding-top: 10px;
+	margin-bottom: 20px;
+}
+
+@media (max-width: 730px) {
+   .center_block{
+	width: 100%;
+   }
+}
+</style>
+}

@@ -1,0 +1,6 @@
+/.env
+/tmp
+/postgres-data
+/.air.toml
+/docker-compose.yml
+/Dockerfile

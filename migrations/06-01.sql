@@ -1,0 +1,9 @@
+
+CREATE TABLE api_keys (
+	id SERIAL PRIMARY KEY,
+	key_name VARCHAR(255),
+    key_value VARCHAR(255) NOT NULL UNIQUE,
+	key_desc VARCHAR(255),
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    expires_at DATE NOT NULL 
+	)
