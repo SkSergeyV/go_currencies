@@ -36,6 +36,10 @@ func main() {
 	// Restore app
 	app.Use(recover.New())
 
+	app.Get("/health", func(c fiber.Ctx) error {
+		return c.SendString("ok")
+	})
+
 	// Static files
 	app.Get("/*", static.New("./web"))
 
