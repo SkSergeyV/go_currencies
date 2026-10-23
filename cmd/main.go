@@ -10,7 +10,6 @@ import (
 
 	"github.com/gofiber/fiber/v3"
 	"github.com/gofiber/fiber/v3/middleware/recover"
-	"github.com/gofiber/fiber/v3/middleware/static"
 
 	"currencies/internal/importer"
 	"currencies/pkg/database"
@@ -18,6 +17,8 @@ import (
 	v1 "currencies/internal/api/v1"
 
 	"currencies/internal/middleware"
+
+	"github.com/gofiber/fiber/v3/middleware/static"
 )
 
 func main() {
@@ -41,7 +42,7 @@ func main() {
 	})
 
 	// Static files
-	app.Get("/*", static.New("./web"))
+	//app.Get("/*", static.New("./web"))
 
 	// Repositories
 	currenciesRepo := home.NewCurrenciesRepository(dbpool)
@@ -79,6 +80,8 @@ func main() {
 			v1.NewHandler(demoGroup, v1Repo)
 		}
 	}
+
+	app.Use("/static", static.New("./web"))
 
 	if err := app.Listen(":" + port); err != nil {
 		log.Fatal(err)
