@@ -17,7 +17,7 @@ DEMO (без ключа) (JSON и XML) Ограничение 1 запрос в 
 
 PREMIUM (JSON и XML) Ограничение 30 запросов в минуту
 
-JSON
+JSON <br>
 /api/v1/exchange_rates/current/json?currencies=all&key=abc  Список курсов всех валют на текущий день
 
 /api/v1/exchange_rates/current/json?currencies=usd&key=abc  Курс одной валюты на текущий день
@@ -27,7 +27,7 @@ JSON
 <br>
 
 
-XML
+XML <br>
 /api/v1/exchange_rates/xml?currencies=all&key=abc  Список курсов всех валют на текущий день
 
 /api/v1/exchange_rates/xml?currencies=usd&key=abc  Курс одной валюты на текущий день
