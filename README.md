@@ -3,8 +3,19 @@
 
 
 ## Курсы валют
-GO: go 1.27.0 <br>
+GO: go 1.27.0 , fiber v3<br>
 <br>
+
+API курсов валют
+
+DEMO (без ключа) (JSON и XML) Ограничение 1 запрос в минуту
+
+/api/demo/v1/exchange_rates/current/json?currencies=all Список курсов всех валют на текущий день
+
+/api/demo/v1/exchange_rates/current/xml?currencies=all Список курсов всех валют на текущий день
+
+
+PREMIUM (JSON и XML) Ограничение 30 запросов в минуту
 
 JSON
 /api/v1/exchange_rates/current/json?currencies=all&key=abc  Список курсов всех валют на текущий день
@@ -26,11 +37,7 @@ XML
 <br>
 
 
-DEMO (без ключа) (JSON и XML) Ограничение 1 запрос в минуту
 
-/api/demo/v1/exchange_rates/current/json?currencies=all
-
-/api/demo/v1/exchange_rates/current/xml?currencies=all
 
 
 
