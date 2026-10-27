@@ -3,7 +3,7 @@
 
 
 ## Курсы валют
-GO: go 1.27.0 , fiber v3<br>
+Go: v1.27.0 , Fiber v3<br>
 <br>
 
 API курсов валют
